@@ -10,6 +10,8 @@ public class Diamond : MonoBehaviour
 
     public Rigidbody2D Rigidbody => _rigidbody;
 
-    public void Take() =>
+    public void Take()
+    {
         Taked?.Invoke(this);
+    }
 }

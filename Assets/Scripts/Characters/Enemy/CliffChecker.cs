@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider2D))]
 public class CliffChecker : MonoBehaviour
@@ -8,6 +7,7 @@ public class CliffChecker : MonoBehaviour
 
     private Collider2D _collder;
     private Vector2 _scaleBox;
+    private int _divider = 2;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class CliffChecker : MonoBehaviour
         position.x = transform.position.x;
 
         Vector2 offset = direction * distance;
-        offset.y -= _size / 2;
+        offset.y -= _size / _divider;
 
         RaycastHit2D hit = Physics2D.BoxCast(position + offset, _scaleBox, 0f, Vector2.zero, 0f, mask);
 

@@ -15,7 +15,7 @@ public class SpawnerDiamond : MonoBehaviour
     {
         _pool = new ObjectPool<Diamond>(
             createFunc: () => Instantiate(_prefab),
-            actionOnGet: (obj) => Spawn(obj),
+            actionOnGet: (obj) => ActivateDiamond(obj),
             actionOnRelease: (obj) => obj.gameObject.SetActive(false),
             actionOnDestroy: (obj) => Destroy(obj),
             collectionCheck: true,
@@ -38,7 +38,7 @@ public class SpawnerDiamond : MonoBehaviour
         _pool.Release(diamond);
     }
 
-    private void Spawn(Diamond diamond)
+    private void ActivateDiamond(Diamond diamond)
     {
         diamond.Taked += Release;
 
@@ -49,7 +49,7 @@ public class SpawnerDiamond : MonoBehaviour
 
     private Vector2 GetSpawnPoint()
     {
-        _currentPoint = (_currentPoint + 1) % _points.Length;
+        _currentPoint = ++_currentPoint % _points.Length;
         return _points[_currentPoint].position;
     }
 
