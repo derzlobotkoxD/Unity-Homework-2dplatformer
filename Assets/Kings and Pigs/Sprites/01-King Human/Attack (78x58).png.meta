@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Attack (78x58)_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 59
+        height: 58
+      alignment: 9
+      pivot: {x: 0.1440678, y: 0.46551725}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eddfa58045a5cd849ab64d53c2f0edaa
+      internalID: -800433205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack (78x58)_4
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 14
+        width: 37
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4642857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa70712d9ed14794a84d1851cfc0927d
+      internalID: -1144175491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack (78x58)_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 14
+        width: 49
+        height: 40
+      alignment: 9
+      pivot: {x: 0.1122449, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad891aad470f57b49bbb3b06c5cdfcde
+      internalID: 77133754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +182,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Attack (78x58)_0: -800433205
+      Attack (78x58)_1: 1062416073
+      Attack (78x58)_2: -401305359
+      Attack (78x58)_3: 77133754
+      Attack (78x58)_4: -1144175491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

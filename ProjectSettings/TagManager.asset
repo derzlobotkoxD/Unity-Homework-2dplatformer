@@ -14,10 +14,10 @@ TagManager:
   - Walls
   - Platforms
   - Box
-  - 
-  - 
-  - 
-  - 
+  - Character
+  - Items
+  - Decoration
+  - Enemy
   - 
   - 
   - 

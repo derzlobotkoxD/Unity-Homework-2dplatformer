@@ -4,6 +4,9 @@ public class Wallet : MonoBehaviour
 {
     private int _amountDiamond = 0;
 
-    public void AddDiamond() =>
+    public void TakeDiamond(Diamond diamond)
+    {
         _amountDiamond++;
+        diamond.Use();
+    }
 }

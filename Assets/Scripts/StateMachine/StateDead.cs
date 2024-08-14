@@ -1,0 +1,12 @@
+using UnityEngine;
+
+public class StateDead : State
+{
+    private Rigidbody2D _rigidbody;
+
+    public StateDead(Rigidbody2D rigidbody) =>
+        _rigidbody = rigidbody;
+
+    public override void Enter() =>
+        _rigidbody.simulated = false;
+}

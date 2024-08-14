@@ -4,9 +4,9 @@ using System.Collections.Generic;
 public class StateMachine
 {
     private State _currentState;
-    private Type _currentStateType;
-
     private Dictionary<Type, State> _states = new Dictionary<Type, State>();
+
+    public Type CurrentStateType { get; private set; }
 
     public void AddState<T>(State state) where T : State
     {
@@ -18,7 +18,7 @@ public class StateMachine
     {
         var type = typeof(T);
 
-        if (_currentState != null && _currentStateType == type)
+        if (_currentState != null && CurrentStateType == type)
             return;
 
         if (_states.TryGetValue(type, out var newState))
@@ -27,7 +27,7 @@ public class StateMachine
                 _currentState.Exit();
 
             _currentState = newState;
-            _currentStateType = type;
+            CurrentStateType = type;
 
             _currentState.Enter();
         }

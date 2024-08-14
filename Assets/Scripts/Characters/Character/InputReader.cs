@@ -3,6 +3,7 @@ using UnityEngine;
 public class InputReader : MonoBehaviour
 {
     private bool _isJump;
+    private bool _isAttack;
 
     public float HorizontalDirection { get; private set; }
 
@@ -10,18 +11,28 @@ public class InputReader : MonoBehaviour
     {
         ReadMove();
         ReadJump();
+        ReadAttack();
     }
 
     public bool GetIsJump() =>
         GetBoolAsTrigger(ref _isJump);
 
+    public bool GetIsAttack() =>
+    GetBoolAsTrigger(ref _isAttack);
+
     private void ReadMove() =>
-        HorizontalDirection = Input.GetAxis(Constants.Horizontal);
+        HorizontalDirection = Input.GetAxis(Constants.Movement.Horizontal);
 
     private void ReadJump()
     {
-        if (Input.GetButtonDown(Constants.Jump))
+        if (Input.GetButtonDown(Constants.Movement.Jump))
             _isJump = true;
+    }
+
+    private void ReadAttack()
+    {
+        if (Input.GetMouseButtonDown(0))
+            _isAttack = true;
     }
 
     private bool GetBoolAsTrigger(ref bool value)
