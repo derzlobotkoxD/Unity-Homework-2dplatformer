@@ -34,9 +34,9 @@ public class Character : MonoBehaviour, IDamageable
         }
     }
 
-    public void Damage(Vector2 directionHit)
+    public void Damage(Vector2 directionHit, float damage)
     {
-        _health.Decrease();
+        _health.Decrease(damage);
         _mover.PushAway(directionHit);
 
         if (IsDead())

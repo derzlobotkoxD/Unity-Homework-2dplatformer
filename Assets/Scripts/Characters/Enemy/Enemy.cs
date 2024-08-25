@@ -16,10 +16,10 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         _stateMachine = new StateMachine();
 
-        _stateMachine.AddState<StatePatrol>(new StatePatrol(_obstacleChecker, _mover, _characterDetector));
-        _stateMachine.AddState<StateChase>(new StateChase(_obstacleChecker, _mover, _characterDetector, _combat));
-        _stateMachine.AddState<StateSearch>(new StateSearch(_mover, _characterDetector));
-        _stateMachine.AddState<StateDead>(new StateDead(_rigidbody));
+        _stateMachine.AddState<StatePatrol>(new StatePatrol(_stateMachine, _obstacleChecker, _mover, _characterDetector));
+        _stateMachine.AddState<StateChase>(new StateChase(_stateMachine, _obstacleChecker, _mover, _characterDetector, _combat));
+        _stateMachine.AddState<StateSearch>(new StateSearch(_stateMachine, _mover, _characterDetector));
+        _stateMachine.AddState<StateDead>(new StateDead(_stateMachine, _rigidbody));
 
         _stateMachine.SetState<StatePatrol>();
     }
@@ -33,9 +33,9 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Update() =>
         _stateMachine.Update();
 
-    public void Damage(Vector2 directionHit)
+    public void Damage(Vector2 directionHit, float damage)
     {
-        _health.Decrease();
+        _health.Decrease(damage);
         _mover.PushAway(directionHit);
         _animator.SetTrigger(Constants.CharacterAnimation.Hit);
         _animator.SetBool(Constants.CharacterAnimation.IsDead, _health.CurrentHealthPoints == 0);

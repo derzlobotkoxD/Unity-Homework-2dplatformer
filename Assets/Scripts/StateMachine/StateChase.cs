@@ -10,7 +10,7 @@ public class StateChase : State
     private Vector2 _direction;
     private float _accelerationSpeed = 2f;
 
-    public StateChase(ObstacleChecker obstacleChecker, Mover mover, CharacterDetector characterDetector, CombatEnemy combat)
+    public StateChase(StateMachine stateMachine, ObstacleChecker obstacleChecker, Mover mover, CharacterDetector characterDetector, CombatEnemy combat) : base(stateMachine)
     {
         _obstacleChecker = obstacleChecker;
         _characterDetector = characterDetector;

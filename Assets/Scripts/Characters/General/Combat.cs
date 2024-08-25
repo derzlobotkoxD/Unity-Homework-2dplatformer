@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class Combat : MonoBehaviour
 {
+    [SerializeField] protected float _damagePerHit = 1;
     [SerializeField] protected float Cooldown = 1f;
     [SerializeField] protected float Radius = 1f;
     [SerializeField] protected float OffsetRadiusHorizontal = 0.1f;

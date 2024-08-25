@@ -9,7 +9,7 @@ public class StateSearch : State
     private Coroutine _coroutine;
     private float _timeSearch = 4f;
 
-    public StateSearch(Mover mover, CharacterDetector characterDetector)
+    public StateSearch(StateMachine stateMachine, Mover mover, CharacterDetector characterDetector) : base(stateMachine)
     {
         _characterDetector = characterDetector;
         _mover = mover;

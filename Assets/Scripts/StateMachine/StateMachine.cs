@@ -8,11 +8,8 @@ public class StateMachine
 
     public Type CurrentStateType { get; private set; }
 
-    public void AddState<T>(State state) where T : State
-    {
+    public void AddState<T>(State state) where T : State =>
         _states.Add(typeof(T), state);
-        state.SetStateMachine(this);
-    }
 
     public void SetState<T>() where T : State
     {

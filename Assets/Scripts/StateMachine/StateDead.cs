@@ -4,7 +4,7 @@ public class StateDead : State
 {
     private Rigidbody2D _rigidbody;
 
-    public StateDead(Rigidbody2D rigidbody) =>
+    public StateDead(StateMachine stateMachine, Rigidbody2D rigidbody) : base(stateMachine) =>
         _rigidbody = rigidbody;
 
     public override void Enter() =>

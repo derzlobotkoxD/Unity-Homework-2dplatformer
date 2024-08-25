@@ -21,6 +21,6 @@ public class CombatEnemy : Combat
         RaycastHit2D hit = Physics2D.CircleCast(startPosition, Radius, transform.right, 0f, Mask);
 
         if (hit.collider != null && hit.collider.TryGetComponent(out IDamageable target))
-            target.Damage(hit.point - (Vector2)transform.position);
+            target.Damage(hit.point - (Vector2)transform.position, _damagePerHit);
     }
 }

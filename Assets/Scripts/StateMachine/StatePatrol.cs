@@ -12,7 +12,7 @@ public class StatePatrol : State
     private Coroutine _coroutine;
     private Vector2 _direction;
 
-    public StatePatrol(ObstacleChecker obstacleChecker, Mover mover, CharacterDetector characterDetector)
+    public StatePatrol(StateMachine stateMachine, ObstacleChecker obstacleChecker, Mover mover, CharacterDetector characterDetector) : base(stateMachine)
     {
         _obstacleChecker = obstacleChecker;
         _characterDetector = characterDetector;
