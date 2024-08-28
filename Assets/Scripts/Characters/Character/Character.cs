@@ -34,7 +34,7 @@ public class Character : MonoBehaviour, IDamageable
         }
     }
 
-    public void Damage(Vector2 directionHit, float damage)
+    public void TakeDamage(Vector2 directionHit, float damage)
     {
         _health.Decrease(damage);
         _mover.PushAway(directionHit);
@@ -46,7 +46,7 @@ public class Character : MonoBehaviour, IDamageable
     }
 
     private bool IsDead() =>
-        _health.CurrentHealthPoints == 0;
+        _health.CurrentValue == 0;
 
     private void Dead()
     {

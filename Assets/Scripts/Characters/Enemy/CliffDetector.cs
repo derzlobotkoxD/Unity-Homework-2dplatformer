@@ -25,9 +25,6 @@ public class CliffDetector : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.BoxCast(position + offset, _scaleBox, 0f, Vector2.zero, 0f, mask);
 
-        if (hit.collider == null)
-            return true;
-
-        return false;
+        return hit.collider == null;
     }
 }

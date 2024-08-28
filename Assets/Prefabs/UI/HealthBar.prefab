@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  _slider: {fileID: 3326792823750197293}
-  _offsetVertical: 0.2
+  Slider: {fileID: 3326792823750197293}
+  OffsetVertical: 0.2
   _accelerationCoefficient: 2
 --- !u!1 &7893082444672752478
 GameObject:

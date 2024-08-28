@@ -19,7 +19,7 @@ public class Box : MonoBehaviour, IDamageable
     private void Awake() =>
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-    public void Damage(Vector2 direction, float damage)
+    public void TakeDamage(Vector2 direction, float damage)
     {
         RendererDamage();
         StartCoroutine(DelayDestroy(_delay));

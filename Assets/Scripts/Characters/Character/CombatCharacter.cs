@@ -16,6 +16,6 @@ public class CombatCharacter : Combat
         if (hits.Length != 0)
             foreach (RaycastHit2D hit in hits)
                 if (hit.collider.TryGetComponent(out IDamageable target))
-                    target.Damage(hit.point - (Vector2)transform.position, _damagePerHit);
+                    target.TakeDamage(hit.point - (Vector2)transform.position, DamagePerHit);
     }
 }

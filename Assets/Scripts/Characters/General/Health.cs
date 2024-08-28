@@ -3,17 +3,17 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _maxHealthPoints = 3;
+    [SerializeField] private float _maxValue = 3;
 
     public event UnityAction Changed;
 
-    public float CurrentHealthPoints { get; private set; }
-    public float MaxHealthPoints => _maxHealthPoints;
+    public float CurrentValue { get; private set; }
+    public float MaxHealthPoints => _maxValue;
 
     private void Awake()
     {
-        if (CurrentHealthPoints == 0)
-            CurrentHealthPoints = _maxHealthPoints;
+        if (CurrentValue == 0)
+            CurrentValue = _maxValue;
     }
 
     public void Decrease(float damage)
@@ -21,15 +21,15 @@ public class Health : MonoBehaviour
         if (damage <= 0)
             return;
 
-        CurrentHealthPoints = Mathf.Clamp(CurrentHealthPoints - damage, 0, _maxHealthPoints);
+        CurrentValue = Mathf.Clamp(CurrentValue - damage, 0, _maxValue);
         Changed?.Invoke();
     }
 
     public void TryRestore(Heart heart)
     {
-        if (CurrentHealthPoints < _maxHealthPoints)
+        if (CurrentValue < _maxValue)
         {
-            CurrentHealthPoints = Mathf.Clamp(CurrentHealthPoints + heart.HealthPoints, 0, _maxHealthPoints);
+            CurrentValue = Mathf.Clamp(CurrentValue + heart.HealthPoints, 0, _maxValue);
             Changed?.Invoke();
             heart.Use();
         }

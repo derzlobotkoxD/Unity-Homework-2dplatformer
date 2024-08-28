@@ -12,19 +12,19 @@ public class SmoothHealthBar : HealthBar
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
-        _coroutine = StartCoroutine(SmoothChange());
+        _coroutine = StartCoroutine(ChangeSmooth());
     }
 
-    private IEnumerator SmoothChange()
+    private IEnumerator ChangeSmooth()
     {
-        float currentValue = _slider.value;
-        float nextValue = Health.CurrentHealthPoints / Health.MaxHealthPoints;
+        float currentValue = Slider.value;
+        float nextValue = Health.CurrentValue / Health.MaxHealthPoints;
         float time = 0;
 
-        while(_slider.value != nextValue)
+        while(Slider.value != nextValue)
         {
             time += _accelerationCoefficient * Time.deltaTime;
-            _slider.value = Mathf.Lerp(currentValue, nextValue, time);
+            Slider.value = Mathf.Lerp(currentValue, nextValue, time);
 
             yield return null;
         }

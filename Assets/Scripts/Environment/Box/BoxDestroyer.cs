@@ -4,8 +4,8 @@ using UnityEngine;
 public class BoxDestroyer : MonoBehaviour
 {
     [SerializeField] private List<Box> _boxs;
-    [SerializeField] private PropsSpawner[] _itemSpawners;
-    [SerializeField] private PropsSpawner _destroyedBoxSpawner;
+    [SerializeField] private SpawnerItem[] _itemSpawners;
+    [SerializeField] private SpawnerDestroyedBox _destroyedBoxSpawner;
     [SerializeField] private Exploder _exploder;
 
     private void OnEnable()
@@ -34,7 +34,8 @@ public class BoxDestroyer : MonoBehaviour
 
     private Rigidbody2D[] GetBoxPieces(Vector2 position)
     {
-        DestroyedBox destroyedBox = (DestroyedBox)_destroyedBoxSpawner.GetProps(position);
+        DestroyedBox destroyedBox = _destroyedBoxSpawner.GetInstance(position);
+
         return destroyedBox.GetRigidbodies();
     }
 
@@ -45,7 +46,7 @@ public class BoxDestroyer : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             int randomIndex = Random.Range(0, _itemSpawners.Length);
-            Item item = (Item)_itemSpawners[randomIndex].GetProps(position);
+            Item item = _itemSpawners[randomIndex].GetInstance(position);
             rigidbodies.Add(item.Rigidbody);
         }
 

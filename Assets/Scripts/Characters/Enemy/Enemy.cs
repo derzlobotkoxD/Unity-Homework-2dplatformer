@@ -33,14 +33,14 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Update() =>
         _stateMachine.Update();
 
-    public void Damage(Vector2 directionHit, float damage)
+    public void TakeDamage(Vector2 directionHit, float damage)
     {
         _health.Decrease(damage);
         _mover.PushAway(directionHit);
         _animator.SetTrigger(Constants.CharacterAnimation.Hit);
-        _animator.SetBool(Constants.CharacterAnimation.IsDead, _health.CurrentHealthPoints == 0);
+        _animator.SetBool(Constants.CharacterAnimation.IsDead, _health.CurrentValue == 0);
 
-        if (_health.CurrentHealthPoints == 0)
+        if (_health.CurrentValue == 0)
             _stateMachine.SetState<StateDead>();
         else if (_stateMachine.CurrentStateType != typeof(StateChase))
             _stateMachine.SetState<StateSearch>();

@@ -25,9 +25,6 @@ public class ItemTaker : MonoBehaviour
                 case Heart heart:
                     _health.TryRestore((Heart)itemTrigger.Item);
                     break;
-
-                default:
-                    break;
             }
         }
     }
