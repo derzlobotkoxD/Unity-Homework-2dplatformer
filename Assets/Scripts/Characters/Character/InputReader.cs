@@ -20,6 +20,9 @@ public class InputReader : MonoBehaviour
     public bool GetIsAttack() =>
     GetBoolAsTrigger(ref _isAttack);
 
+    public bool ReadActivateAbility() =>
+        Input.GetKeyDown(Constants.Ability.HotkeyAbility1);
+
     private void ReadMove() =>
         HorizontalDirection = Input.GetAxis(Constants.Movement.Horizontal);
 

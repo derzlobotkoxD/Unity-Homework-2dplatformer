@@ -4,18 +4,27 @@ public class Character : MonoBehaviour, IDamageable
 {
     [SerializeField] private Mover _mover;
     [SerializeField] private CombatCharacter _combat;
+    [SerializeField] private AbilitiesCharacter _abilities;
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private Animator _animator;
     [SerializeField] private Health _health;
     [SerializeField] private Rigidbody2D _rigidbody;
 
+    public Health Health => _health;
+
     private void Update()
     {
-        if (_inputReader.GetIsAttack() && _combat.CanAttack && IsDead() == false)
+        if (IsDead() == false)
         {
-            _combat.AttackWithCooldown();
-            _animator.SetTrigger(Constants.CharacterAnimation.Attack);
+            if (_inputReader.GetIsAttack() && _combat.CanAttack)
+            {
+                _combat.AttackWithCooldown();
+                _animator.SetTrigger(Constants.CharacterAnimation.Attack);
+            }
+
+            if (_inputReader.ReadActivateAbility())
+                _abilities.TryActivateAbility(this);
         }
     }
 

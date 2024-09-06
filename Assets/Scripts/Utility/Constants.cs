@@ -17,4 +17,10 @@ public static class Constants
         public const string Horizontal = "Horizontal";
         public const string Jump = "Jump";
     }
+
+    public class Ability
+    {
+        public const KeyCode HotkeyAbility1 = KeyCode.F;
+        public const string Cast = "Cast";
+    }
 }

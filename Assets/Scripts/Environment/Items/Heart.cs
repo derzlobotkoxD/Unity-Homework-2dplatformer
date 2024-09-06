@@ -1,4 +1,4 @@
 public class Heart : Item 
 {
-    public float HealthPoints { get; } = 1;
+    public float HealthRecoveryPercentage { get; } = 25f;
 }

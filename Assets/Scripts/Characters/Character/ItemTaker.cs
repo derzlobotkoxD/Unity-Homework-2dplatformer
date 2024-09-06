@@ -23,7 +23,7 @@ public class ItemTaker : MonoBehaviour
                     break;
 
                 case Heart heart:
-                    _health.TryRestore((Heart)itemTrigger.Item);
+                    _health.TryActivateHeart((Heart)itemTrigger.Item);
                     break;
             }
         }

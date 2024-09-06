@@ -25,12 +25,22 @@ public class Health : MonoBehaviour
         Changed?.Invoke();
     }
 
-    public void TryRestore(Heart heart)
+    public void Restore(float value)
+    {
+        if (value <= 0)
+            return;
+
+        CurrentValue = Mathf.Clamp(CurrentValue + value, 0, _maxValue);
+        Changed?.Invoke();
+    }
+
+    public void TryActivateHeart(Heart heart)
     {
         if (CurrentValue < _maxValue)
         {
-            CurrentValue = Mathf.Clamp(CurrentValue + heart.HealthPoints, 0, _maxValue);
-            Changed?.Invoke();
+            float valueRecovery = _maxValue / _maxValue * heart.HealthRecoveryPercentage;
+
+            Restore(valueRecovery);
             heart.Use();
         }
     }
