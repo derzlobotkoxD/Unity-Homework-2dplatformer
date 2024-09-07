@@ -24,7 +24,7 @@ public class StatePatrol : State
 
     public override void FixedUpdate()
     {
-        if (_characterDetector.IsDiscovered(out Vector3 targetPosition))
+        if (_characterDetector.TryGetDiscovered(out Vector3 targetPosition))
         {
             StateMachine.SetState<StateChase>();
             return;

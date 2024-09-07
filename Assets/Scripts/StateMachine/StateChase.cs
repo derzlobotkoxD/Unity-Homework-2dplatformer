@@ -20,7 +20,7 @@ public class StateChase : State
 
     public override void FixedUpdate()
     {
-        if (_characterDetector.IsDiscovered(out Vector3 targetPosition) == false)
+        if (_characterDetector.TryGetDiscovered(out Vector3 targetPosition) == false)
         {
             StateMachine.SetState<StateSearch>();
             return;

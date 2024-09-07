@@ -42,6 +42,7 @@ public class AbilityVampirism : Ability
                 {
                     health.Decrease(damagePerTick);
                     characterHealth.Restore(damagePerTick);
+                    break;
                 }
             }
 

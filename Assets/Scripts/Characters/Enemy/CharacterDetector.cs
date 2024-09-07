@@ -7,7 +7,7 @@ public class CharacterDetector : MonoBehaviour
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private Vector2 _offset;
 
-    public bool IsDiscovered(out Vector3 targetPosition)
+    public bool TryGetDiscovered(out Vector3 targetPosition)
     {
         targetPosition = Vector2.zero;
         Vector2 startPosition = transform.position + _offset.y * Vector3.up + transform.right * _offset.x;

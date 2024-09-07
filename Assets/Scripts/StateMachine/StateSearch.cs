@@ -32,7 +32,7 @@ public class StateSearch : State
 
     private void TrySpot()
     {
-        if (_characterDetector.IsDiscovered(out Vector3 targetPosition))
+        if (_characterDetector.TryGetDiscovered(out Vector3 targetPosition))
         {
             StateMachine.SetState<StateChase>();
             return;
